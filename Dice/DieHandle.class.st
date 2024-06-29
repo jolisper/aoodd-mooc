@@ -18,3 +18,11 @@ DieHandle >> addDie: aDie [
 DieHandle >> diceNumber [
 	^ dice size
 ]
+
+{ #category : 'printing' }
+DieHandle >> printOn: aStream [
+	super printOn: aStream.
+	aStream nextPutAll: ' ['.
+	dice do: [ :die | aStream print: die; nextPutAll: ', ' ].
+	aStream nextPutAll: ']'
+]
